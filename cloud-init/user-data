@@ -1,0 +1,14 @@
+#cloud-config
+users:
+  - name: ubuntu
+    groups: sudo
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false
+
+chpasswd:
+  list: |
+    ubuntu:packer-build-only
+  expire: false
+
+ssh_pwauth: true
